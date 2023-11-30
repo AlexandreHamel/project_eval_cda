@@ -35,7 +35,6 @@ class UserController extends MainController
             $user->setPassword($hashedPassword);
             $user->setRole(2);
 
-
             if ($user->registerUser()) {
                 $this->data[] = '<div class="checked">Successful registration, you can now log in.</div>
                                 <a class="a-user" href="?page=login">Log in</a>';
