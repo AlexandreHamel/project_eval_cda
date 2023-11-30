@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Utility\DataBase;
+use \PDO;
 
 class UserModel
 {
@@ -47,6 +48,23 @@ class UserModel
         $result = $pdoStatement->fetchObject('App\Models\UserModel');
 
         return $result;
+    }
+
+    // CRUD USER
+
+    public static function getUsers(): array
+    {
+        $pdo = DataBase::connectPDO();
+
+        $sql = 'SELECT users.id, users.lastname, users.firstname, users.email, 
+                    users.password, users.role
+                FROM users
+                ORDER BY id DESC';
+        $query = $pdo->prepare($sql);
+        $query->execute();
+        $users = $query->fetchAll(PDO::FETCH_CLASS, 'App\Models\UserModel');
+
+        return $users;
     }
 
     public function getId(): int

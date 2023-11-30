@@ -1,9 +1,9 @@
 <h1>Register</h1>
 
 <form method="post">
-    <input type="text" name="lastname" placeholder="Lastname">
-    <input type="text" name="firstname" placeholder="Firstname">
-    <input type="email" name="email" placeholder="Email">
+    <input type="text" name="lastname" placeholder="Lastname" value="<?php if (!empty($_POST['lastname'])) {echo $_POST['lastname'];} ?>">
+    <input type="text" name="firstname" placeholder="Firstname" value="<?php if (!empty($_POST['firstname'])) {echo $_POST['firstname'];} ?>">
+    <input type="email" name="email" placeholder="Email" value="<?php if (!empty($_POST['email'])) {echo $_POST['email'];} ?>">
     <input type="password" name="password" placeholder="Password">
     <input type="submit" name="registerForm" value="Create account">
 </form>

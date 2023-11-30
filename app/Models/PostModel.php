@@ -26,6 +26,86 @@ class PostModel {
         return $posts;
     }
 
+    public static function getPostById(int $id) 
+    {
+        $pdo = DataBase::connectPDO();
+
+        $query = $pdo->prepare('SELECT posts.id, posts.title, posts.content, posts.img 
+                                FROM posts 
+                                WHERE id=:id');
+
+        $query->bindParam(':id', $id);
+        $query->execute();
+        $query->setFetchMode(PDO::FETCH_ASSOC);
+
+        $post = $query->fetch();
+        
+        return $post;
+    }
+
+    // CRUD DES ARTICLES
+
+    public function insertPost(): bool
+    {
+        $pdo = DataBase::connectPDO();
+
+        $user_id = $_SESSION['user_id'];
+        
+        $sql = "INSERT INTO posts(title, content, img) 
+                VALUES (:title, :content, :img)";
+        
+        $params = [
+            'title' => $this->title,
+            'content' => $this->content,
+            'img' => $this->img,
+        ];
+
+        $query = $pdo->prepare($sql);     
+        $query->execute($params);
+
+        $postId = $pdo->lastInsertId();
+
+        return $postId;
+    } 
+
+    // méthode qui return la requète SQL afin de modifier un Post
+    public function updateOldPost(): bool
+    {
+        $pdo = DataBase::connectPDO();
+
+        $user_id = $_SESSION['user_id'];
+         
+        $sql = "UPDATE `posts` 
+                SET `title` = :title, `content` = :content, `img` = :img
+                WHERE `id` = :id";
+        
+        $params = [
+            'id' => $this->id,
+            'title' => $this->title,
+            'content' => $this->content,
+            'img' => $this->img,
+            'user_id' => $user_id
+        ];
+
+        $query = $pdo->prepare($sql);   
+        $queryStatus = $query->execute($params);
+        return $queryStatus;
+    }
+
+    public static function deletePost(int $postId): bool
+    {
+        $pdo = DataBase::connectPDO();
+
+        $sql = 'DELETE FROM posts 
+                WHERE id = :id';
+
+        $query = $pdo->prepare($sql);
+        $query->bindParam(':id', $postId, PDO::PARAM_INT);
+        $queryStatus = $query->execute();
+        return $queryStatus;
+    }
+
+
     public function getId(): int
     {
         return $this->id;   

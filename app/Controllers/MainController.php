@@ -4,9 +4,10 @@ namespace App\Controllers;
 
 class MainController 
 {
-    protected $view;
+    protected string $view;
     protected $data;
-    protected $viewType = 'front';
+    protected $subPage;
+    protected string $viewType = 'front';
 
     public function render(): void
     { 
@@ -52,12 +53,12 @@ class MainController
         $this->view = $view;
     }
 
-    public function getData()
+    public function getSubPage(): string
     {
-        return $this->data;
+        return $this->subPage;
     }
-    public function setData($data)
+    public function setSubPage($value): void
     {
-        $this->data = $data;        
+        $this->subPage = $value;
     }
 }
