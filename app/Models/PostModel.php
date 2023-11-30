@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
+use App\Utility\DataBase;
 use \PDO;
-use \PDOException;
 
 class PostModel {
 
@@ -14,13 +14,7 @@ class PostModel {
 
     public static function getPost()
     {
-        try {
-            $pdo = new PDO('mysql:host=localhost;dbname=project_cda_1', 'root', 'root');
-            echo 'connecté';
-        } catch (PDOException $e) {
-            print "Erreur !: " . $e->getMessage() . "<br/>";
-            die();
-        }
+        $pdo = DataBase::connectPDO();
 
         $sql = 'SELECT posts.id, posts.title, posts.content, posts.image
                 FROM posts';

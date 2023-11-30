@@ -1,11 +1,7 @@
 <?php
 
-// require __DIR__.'/../app/Controllers/MainController.php';
-// require __DIR__.'/../app/Controllers/PostController.php';
-// require __DIR__.'/../app/Controllers/ContactController.php';
-// require __DIR__.'/../app/Controllers/UserController.php';
-
 require __DIR__.'/../vendor/autoload.php';
+session_start();
 
 const AVAIABLE_ROUTES = [
     'home'=>[
@@ -27,6 +23,10 @@ const AVAIABLE_ROUTES = [
     'logout'=>[
         'controller' => 'UserController',
         'action' => 'renderUser',
+    ],
+    'admin' =>[
+        'controller' => 'AdminController',
+        'action' => 'renderAdmin',
     ],
 ];
 

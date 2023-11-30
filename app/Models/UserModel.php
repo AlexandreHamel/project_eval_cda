@@ -2,8 +2,7 @@
 
 namespace App\Models;
 
-use \PDO;
-use \PDOException;
+use App\Utility\DataBase;
 
 class UserModel
 {
@@ -16,13 +15,7 @@ class UserModel
 
     public function registerUser()
     {
-        try {
-            $pdo = new PDO('mysql:host=localhost;dbname=project_cda_1', 'root', 'root');
-            echo 'connecté';
-        } catch (PDOException $e) {
-            print "Erreur !: " . $e->getMessage() . "<br/>";
-            die();
-        }
+        $pdo = DataBase::connectPDO();
 
         $sql = 'INSERT INTO users (firstname, lastname, email, password, role)
                 VALUES (:firstname, :lastname, :email, :password, :role)';
@@ -40,6 +33,20 @@ class UserModel
         $querystatus = $pdoStatement->execute($params);
 
         return $querystatus;
+    }
+
+    public function getUserByEmail($email)
+    {
+        $pdo = DataBase::connectPDO();
+        
+        $sql = 'SELECT users.id, users.email, users.password ,users.role 
+                FROM users 
+                WHERE email = :email';
+        $pdoStatement = $pdo->prepare($sql);
+        $pdoStatement->execute([':email' => $email]);
+        $result = $pdoStatement->fetchObject('App\Models\UserModel');
+
+        return $result;
     }
 
     public function getId(): int
