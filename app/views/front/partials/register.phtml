@@ -1,15 +1,16 @@
-<h1>login</h1>
+<h1>Register</h1>
 
-<form action="" method="post">
+<form method="post">
+    <input type="text" name="lastname" placeholder="Lastname">
+    <input type="text" name="firstname" placeholder="Firstname">
     <input type="email" name="email" placeholder="Email">
     <input type="password" name="password" placeholder="Password">
-    <input type="submit" name="loginForm" value="Log in">
+    <input type="submit" name="registerForm" value="Create account">
 </form>
 
-<p></p>
 <div class="info">
     <?php
-        if(isset($data)) {
+        if (isset($data)) {
             foreach ($data as $value) {
                 echo $value;
             }

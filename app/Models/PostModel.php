@@ -15,7 +15,7 @@ class PostModel {
     public static function getPost()
     {
         try {
-            $pdo = new PDO('mysql:host=localhost;dbname=project_cda_1', 'root', '');
+            $pdo = new PDO('mysql:host=localhost;dbname=project_cda_1', 'root', 'root');
             echo 'connecté';
         } catch (PDOException $e) {
             print "Erreur !: " . $e->getMessage() . "<br/>";

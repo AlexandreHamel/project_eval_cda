@@ -16,6 +16,10 @@ const AVAIABLE_ROUTES = [
         'controller' => 'ContactController',
         'action' => 'renderContact',
     ],
+    'register'=>[
+        'controller' => 'UserController',
+        'action' => 'renderUser',
+    ],
     'login'=>[
         'controller' => 'UserController',
         'action' => 'renderUser',
