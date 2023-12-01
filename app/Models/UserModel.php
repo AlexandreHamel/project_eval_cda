@@ -62,9 +62,37 @@ class UserModel
                 ORDER BY id DESC';
         $query = $pdo->prepare($sql);
         $query->execute();
-        $users = $query->fetchAll(PDO::FETCH_CLASS, 'App\Models\UserModel');
+        $users = $query->fetchAll(PDO::FETCH_ASSOC);
 
         return $users;
+    }
+
+    public static function deleteUser(int $userId): bool
+    {
+        $pdo = DataBase::connectPDO();
+
+        $sql = 'DELETE FROM users 
+                WHERE id = :id';
+
+        $query = $pdo->prepare($sql);
+        $query->bindParam('id', $userId, PDO::PARAM_INT);
+        $queryStatus = $query->execute();
+        return $queryStatus;
+    }
+
+    public static function switchUserRole(int $userId, int $role)
+    {
+        $pdo = DataBase::connectPDO();
+
+        $sql = "UPDATE users SET role = :role
+                WHERE users.id = :id";
+
+        $query = $pdo->prepare($sql);
+        $query->bindParam(':role', $role, PDO::PARAM_INT);
+        $query->bindParam(':id', $userId, PDO::PARAM_INT);
+        $queryStatus = $query->execute();
+
+        return $queryStatus;
     }
 
     public function getId(): int

@@ -1,1 +1,49 @@
-<h1>adminUser</h1>
+<!-- USER ADMIN -->
+
+<div class="container">
+    <div class="info">
+        <?php
+        if (isset($data['infos'])) {
+            echo $data['infos'];
+        }
+        ?>
+    </div>
+    <h2>Users</h2>
+    <table class="table-admin">
+        
+        <thead id="thead-admin">
+            <tr id="tr-admin">
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Delete user</th>
+                <th>Admin</th>
+                <th>Peon</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <?php foreach ($data['users'] as $key => $users) : ?>
+                <tr id="tr-admin">
+                    <td data-label="Firstname" class="td-admin"><?= $users['firstname']; ?></td>
+                    <td data-label="Lastname" class="td-admin"><?= $users['lastname']; ?></td>
+                    <td data-label="Email" class="td-admin"><?= $users['email']; ?></td>
+                    <td data-label="Role" class="td-admin"><?= $users['role']; ?></td>                     
+                    <form action="" method="post">
+                        <input type="hidden" name="userid" value="<?= $users['id']; ?>">
+                        <td data-label="Supprimer l'utilisateur" class="td-admin">
+                            <input class="btn-admin-red" type="submit" name="deleteUserForm" value="Supprimer">
+                        </td>
+                        <td data-label="Changer le rôle" class="td-admin">
+                        <input class="btn-admin" type="submit" name="confirmRole" value="Rôle Admin">
+                        </td>
+                        <td data-label="Changer le rôle" class="td-admin">
+                        <input class="btn-admin" type="submit" name="confirmPeon" value="Rôle Peon">
+                        </td>
+                    </form>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>

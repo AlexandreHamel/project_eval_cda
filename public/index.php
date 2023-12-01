@@ -28,6 +28,10 @@ const AVAIABLE_ROUTES = [
         'controller' => 'AdminController',
         'action' => 'renderAdmin',
     ],
+    'add' =>[
+        'controller' => 'AdminController',
+        'action' => 'renderAdmin',
+    ],
     'adminUser' =>[
         'controller' => 'AdminController',
         'action' => 'renderAdmin',

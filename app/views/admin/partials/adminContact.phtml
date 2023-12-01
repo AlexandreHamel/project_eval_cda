@@ -13,18 +13,18 @@
                 <th>Nom</th>
                 <th>Mail</th>
                 <th>Message</th>
-                <th>Supprimer le contact</th>
+                <th>Delete contact</th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($data['contact'] as $key => $contacts) : ?>
                 <tr id="tr-admin">
-                    <td data-label="Nom" class="td-admin"><?= $contacts->getName(); ?></td>
+                    <td data-label="Name" class="td-admin"><?= $contacts->getName(); ?></td>
                     <td data-label="Email" class="td-admin"><a href="mailto:<?= $contacts->getMail(); ?>"><?= $contacts->getMail(); ?></a></td>
                     <td data-label="Message" class="td-admin"><?= $contacts->getMessage(); ?></td>
-                    <form action="" method="post">
+                    <form method="post">
                         <input type="hidden" name="contactid" value="<?= $contacts->getId(); ?>">
-                        <td data-label="Supprimer le contact" class="td-admin">
+                        <td data-label="Delete contact" class="td-admin">
                             <input class="btn-admin-red" type="submit" name="deleteContactForm" value="Supprimer">
                         </td>
                     </form>

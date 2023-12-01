@@ -1,0 +1,43 @@
+<!-- UPDATE ADMIN -->
+<div class="container">
+    <div class="info">
+        <?php
+            if (isset($data['infos'])) {
+                echo $data['infos'];
+            }
+        ?>
+    </div>
+    <h2>Update Post</h2>
+    <div class="container-form-admin">
+        <form action="" method="post">
+            <input type="hidden" name="postid" value="<?= $data['post']->getId(); ?>">
+            <div class="row">
+                <div class="col-25">
+                    <label for="title">Title</label>
+                </div>
+                <div class="col-75">
+                    <input class="input-text" type="text" name="title" placeholder="Titre de l'article" value="<?= $data['post']->getTitle(); ?>">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="image">Image</label>
+                </div>
+                <div class="col-75">
+                    <input class="input-text" type="text" name="picture" placeholder="même nom que le fichier image (ex: nom.jpg)" value="<?= $data['post']->getImg(); ?>">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="text">Content</label>
+                </div>
+                <div class="col-75">
+                    <textarea name="content" id="content"  placeholder="Contenu de l'article"><?= $data['post']->getContent(); ?></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <input type="submit" class="btn" name="updatePostForm" value="Modifier l'article">
+            </div>
+        </form>
+    </div>
+</div>

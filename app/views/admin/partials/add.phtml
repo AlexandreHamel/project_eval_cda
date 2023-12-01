@@ -1,0 +1,44 @@
+<!-- ADD ADMIN -->
+
+<section class="container">
+    <div class="info">
+        <?php
+            if (isset($data['infos'])) {
+                echo $data['infos'];
+            }
+        ?>
+    </div>
+    <h2>Add Articles</h2>
+    <div class="container-form-admin">
+        <form method="post" enctype="multipart/form-data">
+            <input type="hidden" name="postid">
+            <div class="row">
+                <div class="col-25">
+                    <label for="title">Title</label>
+                </div>
+                <div class="col-75">
+                    <input class="input-text" type="text" name="title" placeholder="Titre de l'article">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="picture">Image</label>
+                </div>
+                <div class="col-75">
+                    <input class="input-text" type="text" name="picture" placeholder="nom du fichier de l'image (ex: nom.jpg)">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="content">Content</label>
+                </div>
+                <div class="col-75">
+                    <textarea name="content" id="content" placeholder="Contenu de l'article"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <input type="submit" class="btn" name="addPostForm" value="Add article">
+            </div>
+        </form>
+    </div>
+</section>

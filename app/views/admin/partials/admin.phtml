@@ -8,15 +8,15 @@
         ?>
     </div>
     <div class="container-add">
-        <a class="btn-add" href="/public/admin/add">Ajouter un article</a>
+        <a class="btn-add" href="?page=admin&subpage=add">Add Article</a>
     </div>
     <table class="table-admin">
-        <caption>Gérer les articles</caption>
+        <caption>Manage articles</caption>
         <thead id="thead-admin">
             <tr id="tr-admin">
-                <th>Titre</th>
-                <th>Supprimer l'article</th>
-                <th>Modifier l'article</th>
+                <th>Title</th>
+                <th>Delete Articles</th>
+                <th>Update Articles</th>
             </tr>
         </thead>
         <tbody>
@@ -26,8 +26,11 @@
                     <td data-label="Supprimer l'article" class="td-admin">
                         <form method="post">
                             <input type="hidden" name="postid" value="<?= $post['id']; ?>">
-                            <input class="btn-admin-red" type="submit" name="deletePostForm" value="Supprimer article">
+                            <input class="btn-admin-red" type="submit" name="deletePostForm" value="Delete Post">
                         </form>
+                    </td>
+                    <td data-label="Modifier l'article" class="td-admin">
+                        <a class="btn-admin" href="?page=admin&subpage=update&id=<?= $post['id']; ?>">Update</a>
                     </td>
                 </tr>
             <?php endforeach ?>

@@ -16,7 +16,7 @@ class PostModel {
     {
         $pdo = DataBase::connectPDO();
 
-        $sql = 'SELECT posts.id, posts.title, posts.content, posts.image
+        $sql = 'SELECT posts.id, posts.title, posts.content, posts.img
                 FROM posts';
 
         $query = $pdo->prepare($sql);
@@ -36,7 +36,7 @@ class PostModel {
 
         $query->bindParam(':id', $id);
         $query->execute();
-        $query->setFetchMode(PDO::FETCH_ASSOC);
+        $query->setFetchMode(PDO::FETCH_CLASS,'App\Models\PostModel');
 
         $post = $query->fetch();
         
@@ -48,8 +48,6 @@ class PostModel {
     public function insertPost(): bool
     {
         $pdo = DataBase::connectPDO();
-
-        $user_id = $_SESSION['user_id'];
         
         $sql = "INSERT INTO posts(title, content, img) 
                 VALUES (:title, :content, :img)";
@@ -68,12 +66,9 @@ class PostModel {
         return $postId;
     } 
 
-    // méthode qui return la requète SQL afin de modifier un Post
     public function updateOldPost(): bool
     {
         $pdo = DataBase::connectPDO();
-
-        $user_id = $_SESSION['user_id'];
          
         $sql = "UPDATE `posts` 
                 SET `title` = :title, `content` = :content, `img` = :img
@@ -84,7 +79,6 @@ class PostModel {
             'title' => $this->title,
             'content' => $this->content,
             'img' => $this->img,
-            'user_id' => $user_id
         ];
 
         $query = $pdo->prepare($sql);   
