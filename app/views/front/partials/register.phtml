@@ -1,19 +1,19 @@
-<h1>Register</h1>
-
-<form method="post">
-    <input type="text" name="lastname" placeholder="Lastname" value="<?php if (!empty($_POST['lastname'])) {echo $_POST['lastname'];} ?>">
-    <input type="text" name="firstname" placeholder="Firstname" value="<?php if (!empty($_POST['firstname'])) {echo $_POST['firstname'];} ?>">
-    <input type="email" name="email" placeholder="Email" value="<?php if (!empty($_POST['email'])) {echo $_POST['email'];} ?>">
-    <input type="password" name="password" placeholder="Password">
-    <input type="submit" name="registerForm" value="Create account">
-</form>
-
-<div class="info">
-    <?php
-        if (isset($data)) {
-            foreach ($data as $value) {
-                echo $value;
+<main class="container">
+    <h1>Register</h1>
+    <form method="post">
+        <input type="text" name="lastname" placeholder="Lastname" value="<?php if (!empty($_POST['lastname'])) {echo $_POST['lastname'];} ?>">
+        <input type="text" name="firstname" placeholder="Firstname" value="<?php if (!empty($_POST['firstname'])) {echo $_POST['firstname'];} ?>">
+        <input type="email" name="email" placeholder="Email" value="<?php if (!empty($_POST['email'])) {echo $_POST['email'];} ?>">
+        <input type="password" name="password" placeholder="Password">
+        <input type="submit" name="registerForm" value="Create account">
+    </form>
+    <div class="info">
+        <?php
+            if (isset($data)) {
+                foreach ($data as $value) {
+                    echo $value;
+                }
             }
-        }
-    ?>
-</div>
+        ?>
+    </div>
+</main>

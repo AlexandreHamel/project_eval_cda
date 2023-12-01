@@ -1,22 +1,22 @@
-<h1>login</h1>
+<main class="container">
+    <h1>login</h1>
+    <form action="" method="post">
+        <input type="email" name="email" placeholder="Email">
+        <input type="password" name="password" placeholder="Password">
+        <input type="submit" name="loginForm" value="Log in">
+    </form>
+    <div>
+        <p>Not a member yet?</p>
+        <a href="?page=register">Create an account</a>
+    </div>
 
-<form action="" method="post">
-    <input type="email" name="email" placeholder="Email">
-    <input type="password" name="password" placeholder="Password">
-    <input type="submit" name="loginForm" value="Log in">
-</form>
-
-<div>
-    <p>Not a member yet?</p>
-    <a href="?page=register">Create an account</a>
-</div>
-
-<div class="info">
-    <?php
-        if(isset($data)) {
-            foreach ($data as $value) {
-                echo $value;
+    <div class="info">
+        <?php
+            if(isset($data)) {
+                foreach ($data as $value) {
+                    echo $value;
+                }
             }
-        }
-    ?>
-</div>
+        ?>
+    </div>
+</main>

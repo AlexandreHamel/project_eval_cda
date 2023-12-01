@@ -1,0 +1,107 @@
+// MAIN ADMIN
+
+.container-add {
+    margin-top: 20px;
+
+    .btn-add {
+        padding: 10px;
+        text-decoration: none;
+        border-radius: 10px;
+        color: var(--c-white);
+        background-color: blue;
+
+        &:hover {
+            background-color: blue;
+            color: white;
+        }
+    }
+}
+
+.table-admin {
+    border: 0;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    table-layout: fixed;
+
+    caption {
+        font-size: 1.5em;
+        margin: 1em 0 .75em;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tr {
+        display: block;
+        padding: 1em 1em .5em;
+        background-color: grey;
+        border: 2px solid black;
+
+        &+tr {
+            margin-top: .625em;
+        }
+
+        td {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            border-bottom: 1px solid black;
+            font-size: .8em;
+            line-height: 1.35em;
+
+            &::before {
+                content: attr(data-label);
+                font-size: .90em;
+                text-align: left;
+                font-weight: bold;
+                text-transform: uppercase;
+                max-width: 45%;
+                color: blue;
+            }
+
+            &+td {
+                margin-top: 0.8em;
+            }
+
+            &:last-child {
+                border-bottom: 0;
+            }
+
+            .img-admin {
+                width: 20vw;
+            }
+
+            .btn-admin {
+                padding: 5px;
+                border-radius: 5px;
+                text-decoration: none;
+                color: white;
+                background-color: blue;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: darkblue;
+                    color: orange;
+                }
+            }
+
+            .btn-admin-red {
+                font-family: 'Nunito';
+                padding: 5px;
+                border-radius: 5px;
+                border: none;
+                text-decoration: none;
+                color: var(--c-white);
+                background-color: red;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: orange;
+                }
+            }
+        }
+    }
+}

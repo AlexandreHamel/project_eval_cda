@@ -1,0 +1,149 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 10px;
+  min-height: 80vh;
+}
+
+h1 {
+  text-transform: uppercase;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  display: flex;
+  height: 7rem;
+  background: blue;
+  border-radius: 0 0 10px 10px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+.nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 40rem;
+  list-style: none;
+}
+.nav ul a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  font-size: 1.2rem;
+}
+.nav ul a:hover {
+  color: #fff;
+}
+
+.container-add {
+  margin-top: 20px;
+}
+.container-add .btn-add {
+  padding: 10px;
+  text-decoration: none;
+  border-radius: 10px;
+  color: var(--c-white);
+  background-color: blue;
+}
+.container-add .btn-add:hover {
+  background-color: blue;
+  color: white;
+}
+
+.table-admin {
+  border: 0;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+.table-admin caption {
+  font-size: 1.5em;
+  margin: 1em 0 0.75em;
+}
+.table-admin thead {
+  display: none;
+}
+.table-admin tr {
+  display: block;
+  padding: 1em 1em 0.5em;
+  background-color: grey;
+  border: 2px solid black;
+}
+.table-admin tr + tr {
+  margin-top: 0.625em;
+}
+.table-admin tr td {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 1px solid black;
+  font-size: 0.8em;
+  line-height: 1.35em;
+}
+.table-admin tr td::before {
+  content: attr(data-label);
+  font-size: 0.9em;
+  text-align: left;
+  font-weight: bold;
+  text-transform: uppercase;
+  max-width: 45%;
+  color: blue;
+}
+.table-admin tr td + td {
+  margin-top: 0.8em;
+}
+.table-admin tr td:last-child {
+  border-bottom: 0;
+}
+.table-admin tr td .img-admin {
+  width: 20vw;
+}
+.table-admin tr td .btn-admin {
+  padding: 5px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+  background-color: blue;
+  cursor: pointer;
+}
+.table-admin tr td .btn-admin:hover {
+  background-color: darkblue;
+  color: orange;
+}
+.table-admin tr td .btn-admin-red {
+  font-family: "Nunito";
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  text-decoration: none;
+  color: var(--c-white);
+  background-color: red;
+  cursor: pointer;
+}
+.table-admin tr td .btn-admin-red:hover {
+  background-color: orange;
+}/*# sourceMappingURL=style.css.map */

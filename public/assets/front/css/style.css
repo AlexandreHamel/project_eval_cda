@@ -1,0 +1,138 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: "Nunito", Arial, Helvetica, sans-serif;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 10px;
+  min-height: 80vh;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-left: 30px;
+}
+
+h2,
+h3 {
+  text-align: center;
+  text-transform: uppercase;
+  margin: 20px;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+.alert {
+  color: red;
+}
+
+.checked {
+  color: green;
+}
+
+header {
+  display: flex;
+  height: 7rem;
+  background: red;
+  border-radius: 0 0 10px 10px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 30rem;
+  list-style: none;
+}
+.nav ul a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  font-size: 1.2rem;
+}
+.nav ul a:hover {
+  color: #fff;
+}
+
+.container-article {
+  max-width: 1000px;
+  margin: 10px auto 30px auto;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+.container-article .card {
+  margin: 3rem;
+}
+.container-article .card .container-img {
+  max-width: 400px;
+  margin: auto;
+}
+.container-article .card img {
+  height: auto;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.container-contact {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input[type=text],
+input[type=email],
+textarea {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333333;
+}
+
+input[type=submit] {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #388e3c;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+input[type=submit]:hover {
+  background-color: #388e3c;
+}
+
+footer {
+  height: 7rem;
+  background: red;
+  border-radius: 10px 10px 0 0;
+}/*# sourceMappingURL=style.css.map */

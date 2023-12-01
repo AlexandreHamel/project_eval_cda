@@ -1,10 +1,18 @@
-<h1>home</h1>
+<main class="container">
+    <h2>APEX Characters</h2>
 
-<?php foreach ($data as $post) : ?>
-    
-    <div>
-        <div><?= $post['title']; ?></div>
-        <div><?= nl2br(html_entity_decode($post['content'])); ?></div>
-    </div>
+    <?php foreach ($data as $post) : ?>  
 
-<?php endforeach; ?>
+        <article class="container-article">
+            <div class="card">
+                <h3><?= $post['title']; ?></h3>
+                <div class="container-img">
+                    <img src="assets/front/img/<?= $post['img'] ?>">
+                </div>
+                <div><?= nl2br(html_entity_decode($post['content'])); ?></div>
+            </div>
+        </article>
+
+    <?php endforeach; ?>
+
+</main>
